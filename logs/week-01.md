@@ -35,7 +35,7 @@ Motivated by this argument, I became interested in studying how these activation
 - Formulated research questions: "When a manifold-compliant intervention is performed at Layer $L$, does it stay on the manifold at layers $\ell > L$? If it doesn't, how might the non-linearity in the MLP blocks twist this geometry? Does it decompose into higher-dimensional Minkowski sums as Fel et al. observed in vision models?"
 - Created a list of tasks to start exploring the hypothesis:
   1. Build a Toy Dataset. This dataset will include template contexts with clear hierarchical variables (e.g. "The [SHAPE] rolls down the table at a [DEG] incline")
-  2. Integrate Llama with Forward Hooks. This will allow us to track the residual stream at every layer in the model.
+  2. Integrate Llama with Forward Hooks. This will allow us to track the residual stream at every layer in the model. Llama 3.1 8B was specifically selected as it was the model used in previous work on manifold steering.
   3. Implement Lens. Lens let us identify layers where certain variables (e.g. shape, incline) surface.
   4. Fit GAGA Encoder. Given candidate layers $\mathcal{L}$, we fit a manifold $\mathcal{M}_x$ for each variable $x$.
   5. Evaluate Isometry. Qualitatively investigate whether steering along a manifold in an early layer in $\mathcal{L}$ corresponds to a path along the manifold of a later layer in $\mathcal{L}$.

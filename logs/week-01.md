@@ -13,7 +13,7 @@
 - List out 5 initial tasks to explore this quetstion
 
 ## Approach and Implementation
-I met with Kristina on Tuesday for 30 minutes, where we were able to set up a twice weekly meeting time on Mondays and Wednesdays. In addition to this, Kristina helped me narrow done an avenue to explore, namely manifold steering, and helped me settle into the workspace. 
+I met with Kristina on Tuesday for 30 minutes, where we were able to set up a twice weekly meeting time on Mondays and Wednesdays. In addition to this, Kristina helped me narrow down an avenue to explore, namely manifold steering, and helped me settle into the workspace. 
 
 Following this meeting, I put together the following corpus of readings related to manifold steering, a novel (May 2026) approach to steering techniques in interpretability:
 - Manifold Steering Reveals the Shared Geometry of Neural Network Representation and Behavior (Wurgaft et al., 2026)

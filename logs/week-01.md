@@ -37,7 +37,7 @@ Motivated by this argument, I became interested in studying how these activation
   2. Integrate Llama with Forward Hooks. This will allow us to track the residual stream at every layer in the model.
   3. Implement Lens. Lens let us identify layers where certain variables (e.g. shape, incline) surface.
   4. Fit GAGA Encoder. Given candidate layers $\mathcal{L}$, we fit a manifold $\mathcal{M}_x$ for each variable $x$.
-  5. Evaluate Isometry. Qualitatively investigate whether steering along a manifold in an early layer in $\mathcal{L}$ steering along the manifold of a later layer in $\mathcal{L}$.
+  5. Evaluate Isometry. Qualitatively investigate whether steering along a manifold in an early layer in $\mathcal{L}$ corresponds to a path along the manifold of a later layer in $\mathcal{L}$.
 
 Overall, this week was very instructive and I learnt alot!
 

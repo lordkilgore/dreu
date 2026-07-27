@@ -41,7 +41,7 @@ Finally, I visualized the layer 14 ($y$) and layer 30 ($x$) representations (and
 ## Notes
 
 ### Activation Patching
-Let $\mathcal{X}$ denote the variable set. For every $X \in \mathcal{X}$, we look at the collection $\mathcal{A}_X$ of prompt sets where every variable besides $X$ is held fixed. Let $A \in \mathcal{A}_X$ be one of such prompt sets and consider the set $A^{2*} = A^2 \setminus \{(P, P) : P \in A\}$.
+Let $\mathcal{G}$ denote the variable set. For every $X \in \mathcal{G}$, we look at the collection $\mathcal{A}_X$ of prompt sets where every variable besides $X$ is held fixed. Let $A \in \mathcal{A}_X$ be one of such prompt sets and consider the set $A^{2*} = A^2 \setminus \{(P, P) : P \in A\}$.
 
 For every pair of prompts $(P, Q) \in A^{2*}$, cache the residual stream at the last position for $P$ at each layer in $R_P[i]$ and the logits associated with the last position, $logits_Q$ and $logits_{P}$. For each layer $i$, replace $R_Q\[i\]$ with $R_P\[i\]$, record $logits_{P\rightarrow Q} \[i\]$ by letting the forward pass finish.
 
@@ -51,8 +51,8 @@ $$effect_{ (P,Q) }[i] = \frac{d_{P \rightarrow Q}[i] - d_Q}{d_P - d_Q}$$
 
 $$d_R = (logits_{R})_{yes} - (logits_{R})_{no}$$
 
-This metric is then aggregate over all pairings in $A^{2*}$ to estimate how much patching moves toward the donor's answer within a variable stratum (particularly of $\mathcal{X} \setminus \{X\}$):
+This metric is then aggregate over all pairings in $A^{2*}$ to estimate how much patching moves toward the donor's answer within a variable stratum (particularly of $\mathcal{G} \setminus \{X\}$):
 
 $$effect[i] = E_{(P,Q)} \[ effect_{P\rightarrow Q}\[i\]\]$$
 
-In our experiments, we take $\mathcal{X} = \{SHAPE, ANGLE\}$ and use this methodology to compute the $effect[ANGLE][layer]$ and $effect[SHAPE][layer]$ heatmaps for the shape and angle variables respectively.
+In our experiments, we take $\mathcal{G} = \{SHAPE, ANGLE\}$ and use this methodology to compute the $effect[ANGLE][layer]$ and $effect[SHAPE][layer]$ heatmaps for the shape and angle variables respectively.

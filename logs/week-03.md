@@ -49,10 +49,10 @@ The effect of the patch is a normalized score that measures how much the answer 
 
 $$effect_{ (P,Q) }[i] = \frac{d_{P \rightarrow Q}[i] - d_Q}{d_P - d_Q}$$
 
-$$d_R = (logits_R)_{yes} - (logits_R)_{no}$$
+$$d_R = (logits_{R})_{yes} - (logits_{R})_{no}$$
 
 This metric is then aggregate over all pairings in $A^{2*}$ to estimate how much patching moves toward the donor's answer within a variable stratum (particularly of $\mathcal{X} \setminus \{X\}$):
 
-$$effect[i] = \mathbb{E}_{(P,Q)} [ effect_{P\rightarrow Q}[i]]$$
+$$effect[i] = E_{(P,Q)} \[ effect_{P\rightarrow Q}\[i\]\]$$
 
 In our experiments, we take $\mathcal{X} = \{SHAPE, ANGLE\}$ and use this methodology to compute the $effect[ANGLE][layer]$ and $effect[SHAPE][layer]$ heatmaps for the shape and angle variables respectively.

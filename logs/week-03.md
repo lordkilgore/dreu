@@ -26,7 +26,9 @@ Two variables surfacing at the same layer is a negative result in the context of
 
 Sidestepping once more, I turned to the literature and found that the type of identification I was trying to make could be found in the arithmetic data modality. In particular, "Addition in Four Movements: Mapping Layer-wise Information Trajectories in LLMs" (Yan, 2025) shows that the formulaic structure of binary addition is decodable by linear probe at roughly layer 16 and onwards of Llama-3-8B. Motivated by this, I repeated the same experiments with the template `"Calculate: {x} + {y}= "`, replacing the binary logit difference and answer KL metrics with a greedy logit difference, which measures difference in top-1 logits between a patched and clean prompt. 
 
-The results using the KL divergence metric showed the same stable stratification across variable strata as before, but only for $x$. For the greedy logit difference, the results were much noisier, presumably due to inherited model noise, and there was no clear stratification. Averaging out the variable stratum axis, both metrics agreed in inflection at layer 30 for $x$ and layer 14/15 for $y$. Uncertainties for $y$ in these estimates were significant and inverse variance weighting led to less interpretable estimates. Noise in the KL divergence data for this experiment was also observed in the shape/angle experiments. Refining this approach would involve computing the ground-truth labels for each prompt and using that for a logit difference metric, ideally reducing the observed variance.
+The results using the KL divergence metric showed the same stable stratification across variable strata as before, but only for $x$. For the greedy logit difference, the results were much noisier, presumably due to inherited model noise, and there was no clear stratification. Averaging out the variable stratum axis, both metrics agreed in inflection at layer 30 for $x$ and layer 14/15 for $y$. Uncertainties for $y$ in these estimates were significant and inverse variance weighting led to less interpretable estimates. SEM was calculated via method-of-moments (variance decomposition on $E[effect \mid stratum ; layer]$) and effect error was calculated via sample variance within each (layer, stratum) sample.
+
+Noise in the KL divergence data for this experiment was also observed in the shape/angle experiments. Refining this approach would involve computing the ground-truth labels for each prompt and using that for a logit difference metric, ideally reducing the observed variance.
 
 Finally, I visualized the layer 14 ($y$) and layer 30 ($x$) representations (and their respective class centroids) using PCA.
 
@@ -56,3 +58,17 @@ This metric is then aggregate over all pairings in $A^{2*}$ to estimate how much
 $$effect[i] = E_{(P,Q)} \[ effect_{P\rightarrow Q}\[i\]\]$$
 
 In our experiments, we take $\mathcal{G} = \{SHAPE, ANGLE\}$ and use this methodology to compute the $effect[ANGLE][layer]$ and $effect[SHAPE][layer]$ heatmaps for the shape and angle variables respectively.
+
+### Data
+
+<img width="1592" height="575" alt="image" src="https://github.com/user-attachments/assets/df92429e-1e43-48af-a46d-155ad1887712" />
+
+<img width="1700" height="615" alt="image" src="https://github.com/user-attachments/assets/697cbe54-ab29-434f-aede-7b2daaf4787e" />
+
+<img width="1676" height="1327" alt="image" src="https://github.com/user-attachments/assets/44bcc11d-e193-4bcd-98f3-512de9157ea7" />
+
+<img width="1714" height="1290" alt="image" src="https://github.com/user-attachments/assets/39b747b2-2346-48f6-ad98-6b2de5f84f92" />
+
+<img width="1335" height="1109" alt="image" src="https://github.com/user-attachments/assets/0405faf4-6c45-4267-9686-e96be9a1a469" />
+
+

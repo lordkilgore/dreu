@@ -43,10 +43,10 @@ Finally, I visualized the layer 14 ($y$) and layer 30 ($x$) representations (and
 ### Activation Patching
 Let $\mathcal{X}$ denote the variable set. For every $X \in \mathcal{X}$, we look at the collection $\mathcal{A}_X$ of prompt sets where every variable besides $X$ is held fixed. Let $A \in \mathcal{A}_X$ be one of such prompt sets and consider the set $A^{2*} = A^2 \setminus \{(P, P) : P \in A\}$.
 
-For every pair of prompts $(P, Q) \in A^{2*}$, cache the residual stream at the last position for $P$ at each layer in $R_P[i]$ and the logits associated with the last position, $\text{logits}_Q$ and $\text{logits}_{P}$. For each layer $i$, replace $R_Q\[i\]$ with $R_P\[i\]$, record $\text{logits}_{P\rightarrow Q} \[i\]$ by letting the forward pass finish.
+For every pair of prompts $(P, Q) \in A^{2*}$, cache the residual stream at the last position for $P$ at each layer in $R_P[i]$ and the logits associated with the last position, $logits_Q$ and $logits_{P}$. For each layer $i$, replace $R_Q\[i\]$ with $R_P\[i\]$, record $logits_{P\rightarrow Q} \[i\]$ by letting the forward pass finish.
 
 The effect of the patch is a normalized score that measures how much the answer has been influenced by $P$ and is measured per-layer:
-$$\text{effect}_{ (P,Q) }[i] = \frac{d_{P \rightarrow Q}[i] - d_Q}{d_P - d_Q} \hspace{15pt} d_R = (\text{logits}_R)_\text{yes} - (\text{logits}_R)_\text{no}$$
+$$effect_{ (P,Q) }[i] = \frac{d_{P \rightarrow Q}[i] - d_Q}{d_P - d_Q} \hspace{15pt} d_R = (logits_R)_{yes} - (logits_R)_{no}$$
 This metric is then aggregate over all pairings in $A^{2*}$ to estimate how much patching moves toward the donor's answer within a variable stratum (particularly of $\mathcal{X} \setminus \{X\}$):
 $$\text{effect}[i] = \mathbb{E}_{(P,Q)} [ \text{effect}_{P\rightarrow Q}[i]]
 $$

@@ -18,9 +18,9 @@ For this project, we examine the pullback metric on the layer level. A layer $\e
 
 Computing $J_{\Phi_\ell} ^T J_{\Phi_{\ell}}$ is intractable at the scale of Llama 3.1-8B's decoder layers, with each Jacobian requiring a full pass through the computation graph. Moreover, the metric $J_{\Phi_\ell} ^T J_{\Phi_{\ell}}$ is generally sub-Riemannian (PSD). To work around these issues, for every representation pair $p, q$, I instead compute
 
-$$\sqrt{\left\| J_{\Phi_{\ell}}(p)(p-q) \right\|_2^2 + \varepsilon \left\| p-q \right\|_2^2}$$
+$$\sqrt{||J_{\Phi_{\ell}}(p)(p-q)||_2 ^2 + \varepsilon ||p-q||_2 ^2}$$
 
-. In this factored form, the Jacobian computation is replaced with a JVP and the factored form halves the space complexity. The regularizer absorbs $J_{\Phi_{\ell}}$'s rank deficiency with $\varepsilon$ set to `1e-3`.
+In this factored form, the Jacobian computation is replaced with a JVP and the factored form halves the space complexity. The regularizer absorbs $J_{\Phi_{\ell}}$'s rank deficiency with $\varepsilon$ set to `1e-3`.
 
 ## Results
 

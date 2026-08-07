@@ -29,6 +29,7 @@ During the development of the pipeline, I managed to get into contact with Narme
 
 ## Results
 - Curved geodesics for weekday modality realized and geodesic computation fully validated
+- Geodesic pipeline finalized, ready for fitting on arithmetic modality 
 
 
 ## Notes

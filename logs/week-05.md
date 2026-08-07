@@ -12,7 +12,7 @@
 - Evaluate isometry on interlayer maps
 
 ## Approach and Implementation
-I began this week by first trying to reproduce the results of Oozeer et al (2026), which visualize a curved geodesic between the representations of "Sunday" and "Wednesday" (see Data) in the last-token residual stream space after the 28th layer of the model we have been working with -- the metric this curve is a geodesic wrt is important and discussed later. The weekday modality considers questions of the form `What day is {number} days after {entity}?`. I started building the pipeline by first configuring `5` paraphrases of this template and generated `245` (5 * 49) datapoints. These datapoints were then wrapped in Llama 3.1's chat template and then split into an 80/20 train-test split with balanced answer classes. 
+I began this week by first trying to reproduce the results of Oozeer et al (2026), which visualize a curved geodesic between the representations of "Sunday" and "Wednesday" (see Notes) in the last-token residual stream space after the 28th layer of the model we have been working with -- the metric this curve is a geodesic wrt is important and discussed later. The weekday modality considers questions of the form `What day is {number} days after {entity}?`. I started building the pipeline by first configuring `5` paraphrases of this template and generated `245` (5 * 49) datapoints. These datapoints were then wrapped in Llama 3.1's chat template and then split into an 80/20 train-test split with balanced answer classes. 
 
 The layer 28 representations are sourced from the train split and used to fit a PCA(64) subspace, where the dataset is further reduced to 7 centroids aggregate by ground-truth answer. We choose two such centroids, $p$ and $q$, and uniformly choose a set of carrier prompts, seeded per-pair and not sharing the ground-truth answer of either centroid's representative weekday, from the test split. The unwrapped rest-of-network map is then constructed, including the transformation $p \rightarrow \sqrt{p}$ (see log 4). The geodesics $\gamma _{p \rightarrow q} ^{(\text{carrier})}$ are then computed per-carrier via L-BFGS (ablation with AdamW is reported in Data). MSE and Pearson correlation between the computed geodesic and the linear baseline are reported as well as all optimization data. Geodesics are visualized in a PCA(2) subspace fit using the 4096 dimensional, reconstructed centroids from the PCA(64) subspace to avoid representing drift in the geodesic from directions in the orthogonal complement of the PCA(64) subspace. 
 
@@ -28,11 +28,11 @@ During the development of the pipeline, I managed to get into contact with Narme
 
 
 ## Notes
+<img width="927" height="735" alt="image" src="https://github.com/user-attachments/assets/c7a1f02d-e91f-4fd9-b5e4-652083b77502" />
+
 <img width="4032" height="3024" alt="IMG_1210" src="https://github.com/user-attachments/assets/8765f7a8-f1a5-4a72-b1aa-19b584a23d05" />
 
 
 ### Data
-<img width="927" height="735" alt="image" src="https://github.com/user-attachments/assets/c7a1f02d-e91f-4fd9-b5e4-652083b77502" />
-
 [Solver Data Across 10 Centroid Pairs with 1 Carrier Prompt using LBFGS/AdamW](https://claude.ai/code/artifact/48e1f1b2-7e6d-4b22-91f3-15648db146f3) (note, this is where carrier-sensitivity is especially present)
 

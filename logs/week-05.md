@@ -42,6 +42,11 @@ Carrier prompts often affect the representational fidelity of the centroids! Acr
 <img width="3048" height="2483" alt="image" src="https://github.com/user-attachments/assets/93efcd9e-a6ac-408c-ba05-2a4c56da585c" />
 Choosing the carrier prompt which affects this the least yields the following:
 <img width="1646" height="475" alt="image" src="https://github.com/user-attachments/assets/0e4df276-0a9d-4bc4-aa18-0e5da32744d1" />
+Results using the final pipeline:
+<img width="1612" height="455" alt="image" src="https://github.com/user-attachments/assets/95d03a93-fdba-4518-885d-fb72894bd4c1" />
+<img width="926" height="488" alt="Recording 2026-08-07 153706" src="https://github.com/user-attachments/assets/526b8f7e-fbf3-4de6-a69f-82ab15527808" />
+
+
 
 
 

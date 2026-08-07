@@ -40,6 +40,9 @@ During the development of the pipeline, I managed to get into contact with Narme
 ### Data
 Carrier prompts often affect the representational fidelity of the centroids! Across 5 different carriers, the "Wednesday" centroid is mapped to a distribution whose mode is at "Sunday".
 <img width="3048" height="2483" alt="image" src="https://github.com/user-attachments/assets/93efcd9e-a6ac-408c-ba05-2a4c56da585c" />
+Choosing the carrier prompt which affects this the least yields the following:
+<img width="1646" height="475" alt="image" src="https://github.com/user-attachments/assets/0e4df276-0a9d-4bc4-aa18-0e5da32744d1" />
+
 
 
 [Solver Data Across 10 Centroid Pairs with 1 Carrier Prompt using LBFGS/AdamW](https://claude.ai/code/artifact/48e1f1b2-7e6d-4b22-91f3-15648db146f3) (note, this is where carrier-sensitivity is especially present)

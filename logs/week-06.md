@@ -42,13 +42,13 @@ I have begun experimenting with the confinement metric, but I figure it would be
 ## Notes
 
 ### Local-Tangent Manifold Confinement
-Consider a point $x \in \mathcal{M}_\ell$ and its tangent space $T_x \mathcal{M}_\ell < \mathbb{R}^{d_{\text{model}}}$, i.e. the subspace 'tangent' to the manifold up to translation. We can use this tangent space as a local, linear approximation of the manifold. 
+Consider a point $x \in M_\ell$ and its tangent space $T_x M_\ell < \mathbb{R}^{d_{\text{model}}}$, i.e. the subspace 'tangent' to the manifold up to translation. We can use this tangent space as a local, linear approximation of the manifold. 
 
-Let $P_T (x)$ be the projector onto $T_x \mathcal{M}_\ell$, where $\text{rank}(P_T)$ must necessarily be $d << d_{\text{model}}$, with eigenvalues $1$ for directions on the tangent space and $0$ elsewhere. To first order, however, this makes off-manifold directions cheap, so we look at the projector onto the orthogonal complement, $P_N(x) = I_{d_\text{model}} - P_T(x)$, which thus has rank $d_{\text{model}} - d$.
+Let $P_T (x)$ be the projector onto $T_x M_\ell$, where $\text{rank}(P_T)$ must necessarily be $d << d_{\text{model}}$, with eigenvalues $1$ for directions on the tangent space and $0$ elsewhere. To first order, however, this makes off-manifold directions cheap, so we look at the projector onto the orthogonal complement, $P_N(x) = I_{d_\text{model}} - P_T(x)$, which thus has rank $d_{\text{model}} - d$.
 
 However, using $P_N$ alone makes on-manifold paths indistinguishable -- the notion of a **shortest path** along $\mathcal{M}_\ell$ is no longer clear.  Thus, we must also include a term measuring these tangential lengths via $P_T$. Hence, the ideal, composite loss becomes the following. 
 
-$$G_C^{(\mathcal{M})} = \lambda _N P_N+ \lambda_T P_T = (\lambda_N -\lambda_T)P_N +\lambda_TI$$
+$$G_C^{(M)} = \lambda _N P_N+ \lambda_T P_T = (\lambda_N -\lambda_T)P_N +\lambda_TI$$
 
 Interpreting $\lambda_T >0$ as a regularization weight, we now introduce a distance potential as a way to anchor waypoints near the manifold, where these tangent approximations are non-pathological.
 

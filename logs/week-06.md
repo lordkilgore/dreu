@@ -30,11 +30,11 @@ $$\arg \min_{\gamma} \int _0 ^1 [\sum _{\ell = \ell_0} ^{L-1}\lambda_\ell \mathc
 
 I have begun experimenting with the confinement metric, but I figure it would be more cohesive if I report the results in the next week's log. The rest of the project is delineated below:
 
-  1. **Confinement Metric.** Perform ablations and refinements along the following design axes: (1) on-manifold point selection, (2) metric evaluation points, (3) distance potential term, (4) tangential-normal weighting.
-	2. **Composite Fidelity Loss.** Form the composite loss and evaluate the fidelity across all modalities (weekday, age, month, shape) as well as the steering strength (using prior metrics + seeing if model inert to directions orthogonal to manifold). Formalize results with statistical testing (review literature on where applicable) and over an expectation of carriers.
-	3. **Layer Localization.** Evaluate per-layer profiles in the arithmetic and summarization modalities across a cascade and compare results with activation patching (and perhaps a layer probe **IF TIME PERMITS! LOW PRIORITY**). Formalize results with statistical testing (review literature on where applicable) and over an expectation of carriers.
-	4. **Behavior-Unsupervised Metric**. Perform ablations and refinements along the following design axes: (1) pullback, (2) pullback regularization weighting, (3) tangential-normal weighting, (4) distance potential term.
-	5. **Behavior-Unsupervised Loss**. Form the composite loss and evaluate the smoothness and redundancy of induced trajectories (formalized statistically later) across weekday, age, month, and shape modalities.
+1. **Confinement Metric.** Perform ablations and refinements along the following design axes: (1) on-manifold point selection, (2) metric evaluation points, (3) distance potential term, (4) tangential-normal weighting.
+2. **Composite Fidelity Loss.** Form the composite loss and evaluate the fidelity across all modalities (weekday, age, month, shape) as well as the steering strength (using prior metrics + seeing if model inert to directions orthogonal to manifold). Formalize results with statistical testing (review literature on where applicable) and over an expectation of carriers.
+3. **Layer Localization.** Evaluate per-layer profiles in the arithmetic and summarization modalities across a cascade and compare results with activation patching (and perhaps a layer probe **IF TIME PERMITS! LOW PRIORITY**). Formalize results with statistical testing (review literature on where applicable) and over an expectation of carriers.
+4. **Behavior-Unsupervised Metric**. Perform ablations and refinements along the following design axes: (1) pullback, (2) pullback regularization weighting, (3) tangential-normal weighting, (4) distance potential term.
+5. **Behavior-Unsupervised Loss**. Form the composite loss and evaluate the smoothness and redundancy of induced trajectories (formalized statistically later) across weekday, age, month, and shape modalities.
 
 ## Results
 - Project narrative respun

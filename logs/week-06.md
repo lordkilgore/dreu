@@ -52,5 +52,5 @@ $$G_C^{(M)} = \lambda _N P_N+ \lambda_T P_T = (\lambda_N -\lambda_T)P_N +\lambda
 
 Interpreting $\lambda_T >0$ as a regularization weight, we now introduce a distance potential as a way to anchor waypoints near the manifold, where these tangent approximations are non-pathological.
 
-$$\mathcal{L}_{\mathcal{M}}(\gamma(t)) = ||\gamma(t)-\hat{x}(t)||_2 + ||G_C ^{(\mathcal{M})}(\hat{x}(t)) \dot{\gamma}(t)||_2$$
+$$\mathcal{L}_{\mathcal{M}}(\gamma(t)) = \int_0 ^1 ||\gamma(t)-\hat{x}(t)||_2 + ||G_C ^{(\mathcal{M})}(\hat{x}(t)) \dot{\gamma}(t)||_2 \, dt$$
 

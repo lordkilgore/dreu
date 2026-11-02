@@ -1,5 +1,9 @@
 # Week 8
 
+**Student:** Phoenix Wilson
+
+**Mentor:** Kristina Gligoric
+
 **Dates:** 08-23 to 08-29
 
 ## Goals

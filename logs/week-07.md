@@ -16,7 +16,7 @@ which penalizes motion normal to the manifold. It keeps a small tangential term 
 
 Finding the nearest on-manifold point was the main obstacle. Newton’s method stalled in local minima, so I split the spline parameter interval into one search window per waypoint, and used an implicit-function backward pass to recover the gradient through the search. I then ablated how the on-manifold point is selected, where the metric is evaluated, and whether the windows are fixed or move with the waypoints.
 
-With the metric validated, I combined both manifolds into the composite loss $\lambda_a \mathcal{L}_\mathcal{A} + \lambda_b \mathcal{L}_\mathcal{B}$ and swept $(\lambda_a, \lambda_b)$ across the weekday, month and age modalities. To make the sweep practical, I batched all waypoints into a single forward/backward pass.
+With the metric validated, I combined both manifolds into the composite loss $`\lambda_{a} \mathcal{L}_{\mathcal{A}} + \lambda_{b} \mathcal{L}_{\mathcal{B}}`$ and swept $`(\lambda_{a}, \lambda_{b})`$ across the weekday, month and age modalities. To make the sweep practical, I batched all waypoints into a single forward/backward pass.
 
 
 ## Results

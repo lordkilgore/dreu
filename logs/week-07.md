@@ -1,5 +1,9 @@
 # Week 7
 
+**Student:** Phoenix Wilson
+
+**Mentor:** Kristina Gligoric
+
 **Dates:** 08-16 to 08-22
 
 ## Goals

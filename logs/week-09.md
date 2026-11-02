@@ -15,7 +15,7 @@
 This week I drafted the project write-up in LaTeX. It follows a NeurIPS-style preprint layout with sections for the problem, related work, approach, results and discussion. Writing it forced me to formalize ideas that had only lived in my notes:
 
 - *The fidelity gap.* I defined the mismatch between $`F(\mathcal{A})`$ and $`\mathcal{B}`$ as a symmetric Chamfer distance. Its two terms separate the image *drifting off* $`\mathcal{B}`$ from the image *failing to cover* $`\mathcal{B}`$, the latter being the surjectivity issue.
-- *Why pullback geodesics go straight.* The scaled isometry of Wurgaft et al. only constrains $`G_F`$ on the tangent bundle of $`\mathcal{A}`$. Since $`\operatorname{rank} J_F \le \dim \mathcal{Y}`$, $`J_F`$ has at least a 56-dimensional null space in PCA(64), so moving off $`\mathcal{A}`$ is nearly free and unconstrained geodesics cut across it. This is exactly what the confinement metric removes.
+- *Why pullback geodesics go straight.* The scaled isometry of Wurgaft et al. only constrains $`G_F`$ on the tangent bundle of $`\mathcal{A}`$. Since $`\mathrm{rank}\, J_F \le \dim \mathcal{Y}`$, $`J_F`$ has at least a 56-dimensional null space in PCA(64), so moving off $`\mathcal{A}`$ is nearly free and unconstrained geodesics cut across it. This is exactly what the confinement metric removes.
 - *A fidelity certificate.* By the triangle inequality, at every point of the path
 $$
 \min_{b \in \mathcal{B}} \lVert F(\hat{x}(t)) - b \rVert_2 \;\le\; L\, d_{\mathcal{A}}(t) + d_{\mathcal{B}}(t),
